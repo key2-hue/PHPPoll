@@ -41,15 +41,20 @@ class HotSpring {
   }
 
   private function save() {
-    $poll = "SELECT poll FROM pictures WHERE id = (int)$_POST['chosenPicture']";
+    $poll = "SELECT poll FROM pictures WHERE id = :id";
+    $stmt = $this->pdo->prepare($poll);
+    $stmt->bindValue(':id', (int)$_POST['chosenPicture'], \PDO::PARAM_INT);
+    $stmt->execute();
+    $num = $stmt->fetch(\PDO::FETCH_COLUMN);
     $pic = "UPDATE pictures SET poll = :poll WHERE id = :id";
     $choice = $this->pdo->prepare($pic);
-    $params = array(':poll' => $poll + '1', ':id' => (int)$_POST['chosenPicture']);
+    $params = array(':poll' => $num + 1, ':id' => (int)$_POST['chosenPicture']);
     $choice->execute($params);
     // $pic = 'insert into pictures (poll, created) values (:ans, now())';
     // $choice = $this->pdo->prepare($pic);
     // $choice->bindValue(':ans', (int)$_POST['chosenPicture'], \PDO::PARAM_INT);
     // $choice->execute();
+    echo $num;
     exit;
   }
 

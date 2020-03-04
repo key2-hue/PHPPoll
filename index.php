@@ -26,7 +26,7 @@
       <div class="picture" id="picture1" data-id="1"></div>
       <div class="picture" id="picture2" data-id="2"></div>
       <div class="picture" id="picture3" data-id="3"></div>
-      <div class="picture" id="picture4" data-id="5"></div>
+      <div class="picture" id="picture4" data-id="4"></div>
       <input type="hidden" id="chosenPicture" name="chosenPicture" value="">
       <input type="hidden" name="security" value="<?= h($_SESSION['security']); ?>">
     </div>
