@@ -1,5 +1,5 @@
 <?php
-
+  require_once(__DIR__ . '/db.php');
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -10,7 +10,7 @@
 <body>
   <h1>好きな画像を選んでください</h1>
   <form action="" method="post">
-    <div>
+    <div class="hotSpring">
       <div class="picture" id="picture1" data-id="1"></div>
       <div class="picture" id="picture2" data-id="2"></div>
       <div class="picture" id="picture3" data-id="3"></div>

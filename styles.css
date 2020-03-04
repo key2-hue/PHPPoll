@@ -1,0 +1,73 @@
+body {
+  font-size: 17px;
+  text-align: center;
+}
+
+h1 {
+  font-size: 26px;
+}
+
+.hotSpring {
+  display: flex;
+  flex-wrap: wrap;
+  width: 410px;
+  margin: 0 auto;
+}
+
+.hotSpring > .picture {
+  height: 200px;
+  width: 200px;
+  background-position: center;
+}
+
+.picture:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+#picture2, #picture4 {
+  margin-left: 10px;
+}
+
+#picture3, #picture4 {
+  margin-top: 10px;
+}
+
+
+#picture1 {
+  background-image:url("https://www.kurokawaonsen.or.jp/asset/images/home/img-event-yuakari.jpg");
+}
+
+#picture2 {
+  background-image:url("https://www.jalan.net/jalan/images/ryotei/0/007613/4L/000076133000000000000A004.jpg");
+}
+
+#picture3 {
+  background-image:url("https://www.jalan.net/news/img/2017/12/20171215_atami_09-670x443.jpg");
+}
+
+#picture4 {
+  background-image:url("https://travel.mynavi.jp/sp/onsen/img/jyozankeionsen/img_jyozankei2.jpg");
+}
+
+#btn {
+  display: inline-block;
+  width: 150px;
+  background-color: skyblue;
+  color: #fff;
+  margin-top: 20px;
+  box-shadow: 0 5px 0 rgb(115, 174, 197);
+  border-radius: 5px;
+  user-select: none;
+}
+
+#btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+#btn:active {
+  position: relative;
+  top: 5px;
+  box-shadow: none;
+}
