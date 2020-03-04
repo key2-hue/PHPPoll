@@ -1,6 +1,11 @@
 <?php
 
+
+
 namespace Choice;
+
+require_once(__DIR__ . '/db.php');
+
 
 class HotSpring {
   private $pdo;
@@ -18,14 +23,28 @@ class HotSpring {
     }
   }
 
+ 
+
   public function send() {
     try {
       $this->checkAnswer();
       $this->save();
       header('Location: http://' . $_SERVER['HTTP_HOST'] . '/final.php');
     } catch(\Exception $e) {
-      header('Location:: http://' . $_SERVER['HTTP_HOST']);
+      $_SESSION['error'] = $e->getMessage();
+      // var_dump($_SESSION['err']);
+      header('Location: http://' . $_SERVER['HTTP_HOST']);
     }
+    exit;
+  }
+
+  public function error() {
+    $error = null;
+    if(isset($_SESSION['error'])) {
+      $error = $_SESSION['error'];
+      unset($_SESSION['error']);
+    }
+    return $error;
   }
 
   public function startDb() {

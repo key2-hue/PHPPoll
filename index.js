@@ -13,4 +13,5 @@ $(function() {
       $('form').submit();
     }
   });
+  $('.error').fadeOut(5000);
 });

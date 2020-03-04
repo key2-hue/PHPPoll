@@ -9,7 +9,9 @@
   }
   if($_SERVER['REQUEST_METHOD'] === 'POST') {
     $chosenPicture->send();
+    
   }
+  $error = $chosenPicture->error();
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -24,9 +26,12 @@
       <div class="picture" id="picture1" data-id="1"></div>
       <div class="picture" id="picture2" data-id="2"></div>
       <div class="picture" id="picture3" data-id="3"></div>
-      <div class="picture" id="picture4" data-id="4"></div>
+      <div class="picture" id="picture4" data-id="5"></div>
       <input type="hidden" id="chosenPicture" name="chosenPicture" value="">
     </div>
+    <?php if (isset($error)) : ?>
+      <div class="error"><?= h($error); ?></div>  
+    <?php endif; ?>
     <div id="btn">投票結果</div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="index.js"></script>
