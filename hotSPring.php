@@ -12,6 +12,7 @@ class HotSpring {
 
   public function __construct() {
     $this->startDb();
+    $this->security();
   }
 
   private function checkAnswer() {
@@ -21,6 +22,12 @@ class HotSpring {
     ) {
       throw new \Exception('答えが間違っています！');
     }
+  }
+
+  public function security() {
+    if(!isset($_SESSION['security'])) {
+      $_SESSION['security'] = bin2hex(openssl_random_pseudo_bytes(16));
+    };
   }
 
  
