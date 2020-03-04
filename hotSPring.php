@@ -54,8 +54,7 @@ class HotSpring {
     // $choice = $this->pdo->prepare($pic);
     // $choice->bindValue(':ans', (int)$_POST['chosenPicture'], \PDO::PARAM_INT);
     // $choice->execute();
-    echo $num;
-    exit;
+    // exit;
   }
 
  
@@ -72,6 +71,20 @@ class HotSpring {
       header('Location: http://' . $_SERVER['HTTP_HOST']);
     }
     exit;
+  }
+
+  public function results() {
+    
+    $result = "SELECT poll FROM pictures";
+
+    $data = $this->pdo->query($result);
+    $num = $data->fetchAll(\PDO::FETCH_COLUMN);
+    // echo $num[3];
+    $finalNum = [];
+    foreach( $num as $r) {
+      array_push($finalNum, $r);
+    }
+    return $finalNum;
   }
 
   public function error() {
