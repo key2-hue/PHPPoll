@@ -30,10 +30,29 @@ class HotSpring {
     };
   }
 
+  public function checkSecurity() {
+    if(
+      !isset($_SESSION['security']) ||
+      !isset($_POST['security']) ||
+      $_SESSION['security'] !== $_POST['security']
+    ) {
+      throw new \Exception('セキュリティー面で問題あり');
+    }
+  }
+
+  private function save() {
+    $pic = 'insert into pictures (poll, created) values (:ans, now())';
+    $choice = $this->pdo->prepare($pic);
+    $choice->bindValue(':ans', (int)$_POST['chosenPicture'], \PDO::PARAM_INT);
+    $choice->execute();
+    exit;
+  }
+
  
 
   public function send() {
     try {
+      $this->checkSecurity();
       $this->checkAnswer();
       $this->save();
       header('Location: http://' . $_SERVER['HTTP_HOST'] . '/final.php');

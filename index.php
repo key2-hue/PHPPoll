@@ -28,6 +28,7 @@
       <div class="picture" id="picture3" data-id="3"></div>
       <div class="picture" id="picture4" data-id="5"></div>
       <input type="hidden" id="chosenPicture" name="chosenPicture" value="">
+      <input type="hidden" name="security" value="<?= h($_SESSION['security']); ?>">
     </div>
     <?php if (isset($error)) : ?>
       <div class="error"><?= h($error); ?></div>  
