@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="styles.css">
 </html>
 <body>
-  <h1>好きな画像を選んでください(2枚まで選べます)</h1>
+  <h1>好きな画像を選んでください</h1>
   <form action="" method="post">
     <div class="hotSpring">
       <div class="picture" id="picture1" data-id="1"></div>
